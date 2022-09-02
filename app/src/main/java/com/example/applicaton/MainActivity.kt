@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var mes: Int
 
         binding.Button.setOnClickListener {
             val mes = binding.Numeral.text.toString().toInt()
