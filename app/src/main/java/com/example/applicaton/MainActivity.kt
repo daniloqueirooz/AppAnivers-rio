@@ -1,23 +1,24 @@
 package com.example.applicaton
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.applicaton.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        var mes: Int
 
-
-
-        Button.setOnClickListener {
-            val mes = Numeral.text.toString().toInt()
-            Numeral.setText("")
-            Resultado.text = when (mes) {
+        binding.Button.setOnClickListener {
+            val mes = binding.Numeral.text.toString().toInt()
+            binding.Numeral.setText("")
+            binding.Resultado.text = when (mes) {
                 1 ->
                     "Janeiro"
 
@@ -54,17 +55,20 @@ class MainActivity : AppCompatActivity() {
                 12 ->
                     "Dezembro"
 
-                else ->
-                    "Esse mês não existe"
-
+                else -> "Não existe esse número"
             }
 
 
         }
 
+
     }
-
-
 }
+
+
+
+
+
+
 
 
